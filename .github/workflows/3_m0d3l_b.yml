@@ -8,7 +8,7 @@
 # Description: Build using GitHub Actions
 #
 
-name: Build r45pb3rry p1 3 m0d3l b  Atcions
+name: Build r45pb3rry p1 3 m0d3l b Atcions
 
 on:
   repository_dispatch:
@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: master
   FEEDS_CONF: 3_m0d3l_b/f33d5.c0nf.d3f4ult
-  CONFIG_FILE: 3_m0d3l_b/3_m0d3l_b/.c0nf
+  CONFIG_FILE: 3_m0d3l_b/3_m0d3l_b.c0nf
   DIY_P1_SH: 3_m0d3l_b/d1y-p4r71.sh
   DIY_P2_SH: 3_m0d3l_b/d1y-p4r72.sh
   UPLOAD_BIN_DIR: false
