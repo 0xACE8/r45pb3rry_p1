@@ -114,13 +114,13 @@ jobs:
     - name: Send Authorized
       working-directory: ./openwrt
       env:
-        sshpubkey: ${{ secrets.AUTHORIZED_KEYS }}
+        AUTHORIZED_KEYS: ${{ secrets.AUTHORIZED_KEYS }}
       run: |
-        ls
-        mkdir package/base-files/files/etc/dropbear
-        echo "$sshpubkey"
-        echo "$sshpubkey" >> package/base-files/files/etc/dropbear/authorized_keys
-        ls package/base-files/files/etc/dropbear
+        ls package/base-files/files/etc
+        echo "${{ secrets.AUTHORIZED_KEYS }}"
+        echo "${{ secrets.AUTHORIZED_KEYS }}" >> package/base-files/files/etc/dropbear/authorized_keys
+        cat package/base-files/files/etc/dropbear/authorized_keys
+        chmod 600 package/base-files/files/etc/dropbear/authorized_keys
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
