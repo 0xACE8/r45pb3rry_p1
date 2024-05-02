@@ -18,11 +18,12 @@ EOF
 uci commit argon
 
 # ttyd autologin
-#uci batch <<EOF
-#set ttyd.@ttyd[0].interface='@lan'
-#set ttyd.@ttyd[0].command='/bin/login -f root'
-#EOF
-#uci commit ttyd
+uci batch <<EOF
+set ttyd.@ttyd[0].command='/bin/login -f root'
+EOF
+uci commit ttyd
+sed -i '/interface}/d' /etc/init.d/ttyd
+/etc/init.d/ttyd restart
 
 # turboacc
 #uci batch <<EOF
