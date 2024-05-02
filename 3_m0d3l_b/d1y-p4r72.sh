@@ -15,7 +15,7 @@ sed -i 's/ash/bash/g' package/base-files/files/etc/passwd
 
 # 
 echo "${{ secrets.GET_SSHPUBKEY }}" >> package/base-files/files/etc/dropbear/authorized_keys
-chmod 600 package/base-files/files/etc/dropbear/authorized_keys
+#chmod 600 package/base-files/files/etc/dropbear/authorized_keys
 
 # Change language=auto to zh_cn
 #sed -i 's/lang="auto"/lang="zh_cn"/g' package/emortal/default-settings/files/99-default-settings
