@@ -14,9 +14,10 @@ sed -i 's/root:::0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:0:0:99999:
 sed -i 's/ash/bash/g' package/base-files/files/etc/passwd
 
 # 
+mkdir package/base-files/files/etc/dropbear
 sshpubkey="$GET_sshpubkey"
-echo "$sshpubkey" >> package/base-files/files/etc/dropbear/authorized_keys2
-echo "${{ secrets.GET_SSHPUBKEY }}" >> package/base-files/files/etc/dropbear/authorized_keys
+echo "$sshpubkey"
+echo "$sshpubkey" >> package/base-files/files/etc/dropbear/authorized_keys
 #chmod 600 package/base-files/files/etc/dropbear/authorized_keys
 
 # Change language=auto to zh_cn
