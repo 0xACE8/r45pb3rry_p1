@@ -112,9 +112,11 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: Send Authorized
+      working-directory: ./openwrt
       env:
         sshpubkey: ${{ secrets.AUTHORIZED_KEYS }}
       run: |
+        ls
         mkdir package/base-files/files/etc/dropbear
         echo "$sshpubkey"
         echo "$sshpubkey" >> package/base-files/files/etc/dropbear/authorized_keys
