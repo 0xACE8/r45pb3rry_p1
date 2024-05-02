@@ -14,8 +14,7 @@ sed -i 's/root:::0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:0:0:99999:
 sed -i 's/ash/bash/g' package/base-files/files/etc/passwd
 
 # 
-sshpubkey="$GET_sshpubkey"
-echo "$sshpubkey" >> package/base-files/files/etc/dropbear/authorized_keys
+echo "${{ secrets.GET_SSHPUBKEY }}" >> package/base-files/files/etc/dropbear/authorized_keys
 chmod 600 package/base-files/files/etc/dropbear/authorized_keys
 
 # Change language=auto to zh_cn
@@ -28,8 +27,8 @@ sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/shar
 sed -i 's/nas/services/g' feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
 
 # change some tips
-#sed -i '/interface}/d' feeds/packages/utils/ttyd/files/ttyd.init
-#sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
+sed -i '/interface}/d' feeds/packages/utils/ttyd/files/ttyd.init
+sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 sed -i 's/"终端"/"TTYD 终端"/g' feeds/luci/applications/luci-app-ttyd/po/zh_Hans/ttyd.po
 
 # DHCP
