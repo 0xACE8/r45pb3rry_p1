@@ -151,6 +151,17 @@ jobs:
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
 
+    - name: send telegram message on push
+      uses: appleboy/telegram-action@master
+      if: steps.compile.outputs.status != 'success' && !cancelled()
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          ⛔ 固件编译失败! ⛔
+          资源仓库: ${{ github.repository }}
+          编译耗时: ${{ env.time }}
+
     - name: Check space usage
       if: (!cancelled())
       run: df -hT
@@ -180,11 +191,12 @@ jobs:
 
     - name: Telegram notification
       uses: appleboy/telegram-action@master
+      if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
+          ✅ 固件顺利编译完成! ✅
           资源仓库: ${{ github.repository }}
-          固件包名：OneCloud${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-          固件编译成功！
-          format: markdown
+          编译耗时: ${{ env.time }}
+          固件名称: ImmortalWrt_HyperV${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
