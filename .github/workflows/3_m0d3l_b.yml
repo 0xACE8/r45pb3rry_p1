@@ -152,7 +152,7 @@ jobs:
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
 
     - name: Telegram notification
-      if: steps.compile.outputs.status == 'success' && !cancelled()
+      if: steps.compile.outputs.status != 'success' && !cancelled()
       env:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
