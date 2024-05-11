@@ -117,8 +117,9 @@ jobs:
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       run: |
+        sed -i 's/192.168.1.1/192.168.50.65/g' package/base-files/files/bin/config_generate
         git clone https://${{ secrets.ACCESS_TOKEN }}:x-oauth-basic@github.com/0xACE8/openwrt-data.git
-        bash openwrt-data/us_lanx1.sh
+        bash openwrt-data/us_lanx5.sh
         rm -rdf openwrt-data
         
     - name: SSH connection to Actions
