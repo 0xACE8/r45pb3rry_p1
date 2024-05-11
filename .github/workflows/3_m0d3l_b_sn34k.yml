@@ -184,7 +184,7 @@ jobs:
         name: ImmortalWrt_Snake${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
-- name: Telegram notification
+    - name: Telegram notification
       if: steps.compile.outputs.status == 'success' && !cancelled()
       env:
         to: ${{ secrets.TELEGRAM_TO }}
