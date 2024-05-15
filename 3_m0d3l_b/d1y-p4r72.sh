@@ -81,7 +81,7 @@ wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/r45pb3rry_p
 
 # upgrade config
 #wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/r45pb3rry_p1/main/3_m0d3l_b/99-init-settings -O package/base-files/files/etc/uci-defaults/99-init-settings
-wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/0n3cl0ud/main/zzz-updata-settings -O package/base-files/files/etc/uci-defaults/zzz-updata-settings
+wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/r45pb3rry_p1/main/3_m0d3l_b/zzz-updata-settings -O package/base-files/files/etc/uci-defaults/zzz-updata-settings
 wget --no-check-certificate https://raw.githubusercontent.com/0xACE8/r45pb3rry_p1/main/3_m0d3l_b/30-sysinfo.sh -O feeds/packages/utils/bash/files/etc/profile.d/30-sysinfo.sh
 
 echo "diy-part2.sh is done."
