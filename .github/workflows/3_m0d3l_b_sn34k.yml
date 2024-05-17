@@ -25,7 +25,7 @@ env:
   FEEDS_CONF: 3_m0d3l_b/f33d5.c0nf.d3f4ult
   CONFIG_FILE: 3_m0d3l_b/3_m0d3l_b.c0nf
   DIY_P1_SH: 3_m0d3l_b/d1y-p4r71.sh
-  DIY_P2_SH: 3_m0d3l_b/d1y-p4r72.sh
+  DIY_P2_SH: 3_m0d3l_b/d1y-p4r73.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: "America/Los_Angeles"
