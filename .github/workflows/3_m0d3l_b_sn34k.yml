@@ -74,11 +74,11 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
-    - name: add 6.6.x kernel
-      run: |
-        rm -rf openwrt/target/linux/bcm27xx
-        [ -e target ] && cp -rf target openwrt/
-        chmod +x openwrt/target/linux/bcm27xx/image/gen_rpi_sdcard_img.sh        
+#    - name: add 6.6.x kernel
+#      run: |
+#        rm -rf openwrt/target/linux/bcm27xx
+#        [ -e target ] && cp -rf target openwrt/
+#        chmod +x openwrt/target/linux/bcm27xx/image/gen_rpi_sdcard_img.sh        
 
     - name: install turboacc and patch
       working-directory: ./openwrt
